@@ -1,0 +1,1128 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, sans-serif;
+  color: #30483f;
+  background: #f7f8f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #8eb7a0;
+  outline-offset: 3px;
+}
+
+.pagina {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 32px;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.simbolo {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  background: #315d4b;
+  color: white;
+  font-size: 24px;
+}
+
+.mensagem-topo {
+  color: #527361;
+  font-size: 14px;
+}
+
+.apresentacao {
+  margin-top: 44px;
+  padding: 64px 30px;
+  border: 1px solid #dce8dd;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #e8f0e7, #cbded0);
+  text-align: center;
+}
+
+.subtitulo {
+  margin: 0 0 14px;
+  color: #315d4b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.apresentacao h1 {
+  margin: 22px 0;
+  color: #244638;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.apresentacao h1 span {
+  color: #315d4b;
+}
+
+.descricao {
+  max-width: 540px;
+  margin: 0 auto 25px;
+  color: #435f50;
+  line-height: 1.8;
+}
+
+.botao,
+.botao-salvar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #315d4b;
+  color: white;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.botao:hover,
+.botao-salvar:hover {
+  background: #244638;
+  transform: translateY(-1px);
+}
+
+.acao-inicial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.campo-nome {
+  width: 270px;
+  max-width: 100%;
+  min-height: 46px;
+  padding: 13px 15px;
+  border: 1px solid #cbd9ce;
+  border-radius: 12px;
+  background: #fff;
+  color: #30483f;
+  font-size: 14px;
+}
+
+.campo-nome:focus,
+.campo-relato textarea:focus {
+  border-color: #608572;
+}
+
+.boas-vindas {
+  margin: 22px 0 0;
+  color: #244638;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.recursos {
+  padding: 48px 0;
+}
+
+.recursos h2 {
+  margin: 0 0 24px;
+  color: #30483f;
+  font-size: clamp(23px, 3vw, 28px);
+}
+
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cartao {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid #e1e9e0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgb(48 72 63 / 4%);
+}
+
+.cartao-clicavel {
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.cartao-clicavel:hover {
+  transform: translateY(-3px);
+  border-color: #a9c5af;
+  box-shadow: 0 10px 24px rgb(48 72 63 / 8%);
+}
+
+.icone {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 14px;
+  background: #e9f0e7;
+  color: #315d4b;
+  font-size: 25px;
+}
+
+.cartao h3 {
+  margin: 20px 0 10px;
+  font-size: 18px;
+}
+
+.cartao p {
+  color: #617267;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.link-cartao {
+  display: inline-block;
+  margin-top: 8px;
+  color: #315d4b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+footer {
+  padding: 24px 0;
+  border-top: 1px solid #e1e7df;
+  color: #718077;
+  font-size: 13px;
+}
+
+/* Diário emocional */
+
+.diario {
+  width: 100%;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 32px;
+  border: 1px solid #e1e9e0;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(48 72 63 / 5%);
+}
+
+.diario h2 {
+  margin: 10px 0 12px;
+  color: #244638;
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.25;
+}
+
+.diario > p:not(.subtitulo):not(.mensagem-emocao) {
+  color: #617267;
+  line-height: 1.7;
+}
+
+.botao-voltar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin: 0 0 24px;
+  padding: 9px 14px;
+  border: 1px solid #dce6dc;
+  border-radius: 10px;
+  background: #f7f8f4;
+  color: #315d4b;
+  font-weight: 700;
+}
+
+.botao-voltar:hover {
+  background: #e9f0e7;
+}
+
+.emocoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.emocao {
+  min-height: 44px;
+  padding: 11px 15px;
+  border: 1px solid #dce6dc;
+  border-radius: 12px;
+  background: #f8faf7;
+  color: #405b4b;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.emocao:hover {
+  border-color: #9fbea7;
+  background: #eef4ed;
+}
+
+.emocao.selecionada {
+  border-color: #315d4b;
+  background: #e2eee3;
+  color: #244638;
+  box-shadow: inset 0 0 0 1px #315d4b;
+  font-weight: 700;
+}
+
+.mensagem-emocao {
+  margin: 16px 0 22px;
+  color: #315d4b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.campo-relato {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0 20px;
+}
+
+.campo-relato label {
+  color: #30483f;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.campo-relato textarea {
+  display: block;
+  width: 100%;
+  min-height: 140px;
+  padding: 15px;
+  border: 1px solid #d3dfd6;
+  border-radius: 12px;
+  background: #fbfcf9;
+  color: #30483f;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.campo-relato textarea::placeholder {
+  color: #89968d;
+}
+
+.contador {
+  align-self: flex-end;
+  margin: 0;
+  color: #718077;
+  font-size: 12px;
+}
+
+.botao-salvar {
+  width: 100%;
+  margin: 0 0 12px;
+}
+
+.diario > .botao-voltar:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .pagina {
+    padding: 20px 16px;
+  }
+
+  .cabecalho {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .apresentacao {
+    margin-top: 28px;
+    padding: 42px 20px;
+    border-radius: 22px;
+  }
+
+  .acao-inicial {
+    flex-direction: column;
+  }
+
+  .campo-nome,
+  .acao-inicial .botao {
+    width: 100%;
+  }
+
+  .cartoes {
+    grid-template-columns: 1fr;
+  }
+
+  .recursos {
+    padding: 36px 0;
+  }
+
+  .diario {
+    margin: 28px auto;
+    padding: 23px 18px;
+    border-radius: 18px;
+  }
+
+  .lista-emocoes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .emocao {
+    width: 100%;
+    padding: 11px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Calendário do EntreMentes */
+.calendario {
+  width: 100%;
+  max-width: 520px;
+  margin: 24px auto;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e0e9df;
+  border-radius: 18px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(45, 75, 50, 0.06);
+}
+
+.cabecalho-calendario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cabecalho-calendario h3 {
+  margin: 0;
+  color: #315b43;
+  font-size: 18px;
+  text-align: center;
+}
+
+.cabecalho-calendario button {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: #edf4ed;
+  color: #315b43;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.grade-calendario {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  text-align: center;
+}
+
+.nome-dia {
+  padding: 8px 0;
+  color: #718274;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dia-vazio {
+  min-height: 42px;
+}
+
+.dia-calendario {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #f5f8f4;
+  color: #354b3a;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dia-calendario:hover {
+  background: #e4efe3;
+}
+
+.dia-selecionado {
+  background: #477b58;
+  color: #ffffff;
+}
+
+.indicador-registro {
+  position: absolute;
+  bottom: 1px;
+  color: #70a77a;
+  font-size: 18px;
+  line-height: 10px;
+}
+
+.dia-selecionado .indicador-registro {
+  color: #ffffff;
+}
+
+.registros-do-dia {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e9df;
+}
+
+.registros-do-dia > h3 {
+  color: #315b43;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .calendario {
+    padding: 12px;
+  }
+
+  .grade-calendario {
+    gap: 3px;
+  }
+
+  .dia-calendario,
+  .dia-vazio {
+    min-height: 36px;
+  }
+}
+
+/* ===== Tela de Emoções ===== */
+
+section.tela-emocoes {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+section.tela-emocoes .recursos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  max-width: 680px;
+  margin: 24px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section.tela-emocoes .recursos > button.cartao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 170px;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #e1e9e0;
+  border-radius: 16px;
+  background: #fff;
+  color: #30483f;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgb(48 72 63 / 4%);
+}
+
+section.tela-emocoes .recursos > button.cartao:hover {
+  border-color: #8eb7a0;
+  box-shadow: 0 5px 18px rgb(48 72 63 / 10%);
+}
+
+section.tela-emocoes .recursos > button.cartao h3 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+}
+
+section.tela-emocoes .recursos > button.cartao p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+section.tela-emocoes .campo-reflexao {
+  width: 100%;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+section.tela-emocoes .campo-reflexao textarea {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #d8e5db;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  section.tela-emocoes {
+    padding: 20px 16px;
+  }
+
+  section.tela-emocoes .recursos {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 400px;
+  }
+}
+
+/* Campo de reflexão da tela de emoções */
+section.tela-emocoes .campo-reflexao textarea,
+section.tela-emocoes textarea.campo-relato {
+  background-color: #ffffff;
+  color: #30483f;
+  border: 1px solid #d8e5db;
+  border-radius: 10px;
+  padding: 14px;
+  outline-color: #568b76;
+}
+
+section.tela-emocoes textarea::placeholder {
+  color: #89958e;
+  opacity: 1;
+}
+
+/* ========================================
+   TELA DE AUTOCONFIANÇA — ENTREMENTES
+   ======================================== */
+
+section.tela-emocoes:has(.campo-relato) {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+section.tela-emocoes:has(.campo-relato) > h2 {
+  margin: 12px 0 16px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+section.tela-emocoes:has(.campo-relato) > .subtitulo {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+section.tela-emocoes:has(.campo-relato) > p {
+  line-height: 1.7;
+}
+
+section.tela-emocoes:has(.campo-relato) > h3 {
+  margin: 28px 0 8px;
+  font-size: 1.15rem;
+}
+
+/* Campos de reflexão */
+
+section.tela-emocoes .campo-relato {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  margin: 12px 0 24px;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid #d9dfe7;
+  border-radius: 12px;
+  background: #fff;
+  color: #263238;
+  font: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+section.tela-emocoes .campo-relato:focus {
+  outline: none;
+  border-color: #5a8f78;
+  box-shadow: 0 0 0 3px rgba(90, 143, 120, 0.15);
+}
+
+/* Botões */
+
+section.tela-emocoes:has(.campo-relato) .botao-voltar {
+  margin: 8px 0 16px;
+  cursor: pointer;
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 600px) {
+  section.tela-emocoes:has(.campo-relato) {
+    padding: 24px 16px;
+  }
+
+  section.tela-emocoes:has(.campo-relato) > h2 {
+    font-size: 1.5rem;
+  }
+
+  section.tela-emocoes:has(.campo-relato) > h3 {
+    font-size: 1.05rem;
+    margin-top: 24px;
+  }
+
+  section.tela-emocoes .campo-relato {
+    min-height: 110px;
+    padding: 13px;
+  }
+}
+
+/* Centralizar a tela de Autoconfiança */
+
+section.tela-emocoes:has(.campo-relato) {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Centralizar títulos e textos */
+section.tela-emocoes:has(.campo-relato) > h2,
+section.tela-emocoes:has(.campo-relato) > h3,
+section.tela-emocoes:has(.campo-relato) > p {
+  text-align: center;
+}
+
+/* Manter os campos alinhados e organizados */
+section.tela-emocoes:has(.campo-relato) .campo-relato {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  margin: 12px auto 24px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Centralizar os botões */
+section.tela-emocoes:has(.campo-relato) .botao-voltar {
+  display: block;
+  margin: 16px auto;
+}
+
+
+/* Histórico de autoconfiança */
+
+.historico-confianca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.historico-confianca .cartao {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #dce7df;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(30, 60, 45, 0.06);
+}
+
+.historico-confianca .data-registro {
+  color: #547263;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.historico-confianca .cartao h3 {
+  margin: 16px 0 6px;
+}
+
+/* Ações da tela de Autoconfiança */
+
+section.tela-emocoes:has(.campo-relato) .acoes-confianca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  margin: 28px auto 8px;
+}
+
+
+.acoes-confianca button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, 220px);
+  min-height: 36px;
+  margin: 0;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  font-size: 13px;
+  white-space: normal;
+  text-align: center;
+}
+/* Botão principal */
+section.tela-emocoes:has(.campo-relato) .acoes-confianca .botao-salvar {
+  border: none;
+}
+
+/* Botão para consultar o histórico */
+section.tela-emocoes:has(.campo-relato) .acoes-confianca .botao-historico {
+  border: 1px solid #cbded1;
+  background: #f5faf6;
+  color: #285b43;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+  section.tela-emocoes:has(.campo-relato) .acoes-confianca {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  section.tela-emocoes:has(.campo-relato) .acoes-confianca button {
+    width: 100%;
+  }
+}
+
+
+/* ===== PROPÓSITO DE VIDA ===== */
+
+.acoes-proposito {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto 0;
+}
+
+.acoes-proposito button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== HISTÓRICO DE PROPÓSITO ===== */
+
+.historico-proposito {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.registro-proposito {
+  background: #ffffff;
+  border: 1px solid #e2e9e2;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 4px 14px rgba(35, 65, 43, 0.06);
+}
+
+.registro-proposito h3 {
+  color: #315d40;
+  font-size: 17px;
+  margin: 20px 0 8px;
+}
+
+.registro-proposito p {
+  color: #4e5d51;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.data-registro {
+  display: inline-block;
+  background: #edf5ed;
+  color: #356747;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.vazio-proposito {
+  text-align: center;
+  padding: 36px 24px;
+  background: #f5f8f3;
+  border: 1px dashed #cbd9c9;
+  border-radius: 16px;
+  margin-top: 24px;
+}
+
+.vazio-proposito h3 {
+  color: #315d40;
+}
+
+@media (max-width: 600px) {
+  .registro-proposito {
+    padding: 18px;
+    margin: 16px 0;
+  }
+}
+
+.registro-proposito {
+  background: #ffffff;
+  border: 1px solid #e2e9e2;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 4px 14px rgba(35, 65, 43, 0.06);
+}
+
+.data-registro {
+  display: inline-block;
+  background: #edf5ed;
+  color: #356747;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.registro-proposito h3 {
+  color: #315d40;
+  font-size: 17px;
+  margin: 20px 0 8px;
+}
+.registro-proposito {
+  background: #fff3cd !important;
+  border: 3px solid red !important;
+  padding: 30px !important;
+}
+
+/* Campos de texto — Propósito de Vida */
+section.diario textarea {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Botão Salvar reflexão — Propósito de Vida */
+.acoes-proposito .botao-principal {
+  background-color: #2e7d5b;
+  color: #ffffff;
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Botões da tela de histórico de propósito */
+.historico-proposito .botao-principal,
+.historico-proposito .botao-voltar {
+  background-color: #2e7d5b;
+  color: #ffffff;
+  border: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Botão Criar primeira reflexão */
+.historico-proposito button.botao-principal {
+  background: #2e7d5b !important;
+  color: #ffffff !important;
+  border: none !important;
+  opacity: 1 !important;
+}
+
+
+/* Botão de criar primeira reflexão */
+article.cartao button.botao-principal {
+  background-color: #2e7d5b  !important;
+  color: #ffffff !important;
+  border: none !important;
+  opacity: 1 !important;
+}
+
+/* Tela de login */
+.login-pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f7fb;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.login-pagina .cabecalho {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.login-cartao {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 36px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(30, 50, 80, 0.08);
+}
+
+.login-cartao h1 {
+  margin: 10px 0 12px;
+  color: #25324a;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.login-cartao p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.login-cartao form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.login-cartao label {
+  margin-top: 8px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.login-cartao input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  font-size: 16px;
+  outline: none;
+}
+
+.login-cartao input:focus {
+  border-color: #6485d8;
+  box-shadow: 0 0 0 3px rgba(100, 133, 216, 0.15);
+}
+
+.login-cartao .botao,
+.login-cartao .botao-voltar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  margin-top: 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.login-cartao .botao {
+  border: none;
+  background: #526fc4;
+  color: white;
+}
+
+.login-cartao .botao-voltar {
+  border: 1px solid #526fc4;
+  background: transparent;
+  color: #526fc4;
+}
+
+.login-cartao button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+@media (max-width: 500px) {
+  .login-pagina {
+    padding: 16px;
+  }
+
+  .login-pagina .cabecalho {
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .login-cartao {
+    padding: 24px;
+  }
+
+  .login-cartao h1 {
+    font-size: 24px;
+  }
+}
