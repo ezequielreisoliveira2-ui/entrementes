@@ -6,7 +6,14 @@ import { supabase } from './supabase'
 
 function App() {
 
-  
+  const sairDaConta = async () => {
+  const { error } = await supabase.auth.signOut()
+
+  if (error) {
+    console.error('Erro ao sair da conta:', error.message)
+  }
+}
+
 function salvarReflexaoConfianca() {
   if (
     !respostasConfianca.qualidades.trim() &&
@@ -327,15 +334,25 @@ useEffect(() => {
   return (
     <main className="pagina">
       <header className="cabecalho">
-        <div className="logo">
-          <span className="simbolo">e.</span>
-          <span>EntreMentes</span>
-        </div>
+  <div className="logo">
+    <span className="simbolo">e.</span>
+    <span>EntreMentes</span>
+  </div>
 
-        <span className="mensagem-topo">
-          Seu espaço de cuidado
-        </span>
-      </header>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+    <span className="mensagem-topo">
+      Seu espaço de cuidado
+    </span>
+
+    <button
+      type="button"
+      className="botao-voltar"
+      onClick={sairDaConta}
+    >
+      Sair da conta
+    </button>
+  </div>
+</header>
 
       {tela === 'inicio' && (
         <>
